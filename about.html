@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="About this website." />
+    <title>About • Starter Website</title>
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('theme');
+          var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var theme = saved || (prefersDark ? 'dark' : 'light');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (_) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="/">Starter<span>Site</span></a>
+        <nav class="nav" id="site-nav" aria-label="Primary">
+          <a href="/">Home</a>
+          <a href="/blog/">Blog</a>
+          <a href="/about.html" aria-current="page">About</a>
+          <a href="/contact.html">Contact</a>
+        </nav>
+        <div class="header-actions">
+          <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme" title="Toggle theme"><span aria-hidden="true">🌓</span></button>
+          <button id="nav-toggle" class="icon-btn mobile-only" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav"><span aria-hidden="true">☰</span></button>
+        </div>
+      </div>
+    </header>
+
+    <main class="site-section">
+      <div class="container">
+        <h1>About</h1>
+        <p>This site is a minimal, fast starter template with a focus on accessibility and great defaults.</p>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="year"></span> StarterSite. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="/script.js" defer></script>
+  </body>
+  </html>
+

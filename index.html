@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A modern, responsive starter website." />
+    <meta name="theme-color" content="#0ea5e9" />
+    <title>Starter Website</title>
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('theme');
+          var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var theme = saved || (prefersDark ? 'dark' : 'light');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (_) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="/">Starter<span>Site</span></a>
+        <nav class="nav" id="site-nav" aria-label="Primary">
+          <a href="/">Home</a>
+          <a href="/blog/">Blog</a>
+          <a href="/about.html">About</a>
+          <a href="/contact.html">Contact</a>
+        </nav>
+        <div class="header-actions">
+          <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme" title="Toggle theme">
+            <span aria-hidden="true">🌓</span>
+          </button>
+          <button id="nav-toggle" class="icon-btn mobile-only" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">
+            <span aria-hidden="true">☰</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <h1>Build something great, fast.</h1>
+          <p>A clean, accessible starter with responsive layout and theme toggle.</p>
+          <div class="cta">
+            <a class="btn primary" href="/blog/">Read the blog</a>
+            <a class="btn" href="/about.html">About this site</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="features">
+        <div class="container grid">
+          <article class="card">
+            <h3>Responsive</h3>
+            <p>Layouts that adapt beautifully from mobile to desktop.</p>
+          </article>
+          <article class="card">
+            <h3>Accessible</h3>
+            <p>Built with semantic HTML and keyboard-friendly interactions.</p>
+          </article>
+          <article class="card">
+            <h3>Themeable</h3>
+            <p>Light and dark themes with one-click toggle and persistence.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="year"></span> StarterSite. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="/script.js" defer></script>
+  </body>
+</html>
+
