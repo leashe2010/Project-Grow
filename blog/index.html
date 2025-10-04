@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Blog posts." />
+    <title>Blog • Starter Website</title>
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('theme');
+          var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var theme = saved || (prefersDark ? 'dark' : 'light');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (_) {}
+      })();
+    </script>
+    <style>
+      .posts { display: grid; gap: 1rem; grid-template-columns: repeat(1, minmax(0, 1fr)); }
+      @media (min-width: 820px) { .posts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+      .post { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1rem; box-shadow: var(--shadow); }
+      .post h3 { margin: 0 0 0.4rem; }
+      .post time { color: var(--muted); font-size: 0.95rem; }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="/">Starter<span>Site</span></a>
+        <nav class="nav" id="site-nav" aria-label="Primary">
+          <a href="/">Home</a>
+          <a href="/blog/" aria-current="page">Blog</a>
+          <a href="/about.html">About</a>
+          <a href="/contact.html">Contact</a>
+        </nav>
+        <div class="header-actions">
+          <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme" title="Toggle theme"><span aria-hidden="true">🌓</span></button>
+          <button id="nav-toggle" class="icon-btn mobile-only" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav"><span aria-hidden="true">☰</span></button>
+        </div>
+      </div>
+    </header>
+
+    <main class="site-section">
+      <div class="container">
+        <h1>Blog</h1>
+        <div class="posts">
+          <article class="post">
+            <h3><a href="#">Welcome to the blog</a></h3>
+            <time datetime="2025-10-03">October 3, 2025</time>
+            <p>A short intro to our new blog. We will share updates and tips here.</p>
+          </article>
+          <article class="post">
+            <h3><a href="#">Designing with accessibility in mind</a></h3>
+            <time datetime="2025-09-20">September 20, 2025</time>
+            <p>Small improvements can greatly improve usability for everyone.</p>
+          </article>
+          <article class="post">
+            <h3><a href="#">Performance basics for static sites</a></h3>
+            <time datetime="2025-09-01">September 1, 2025</time>
+            <p>Leverage caching, image optimization, and minimal JavaScript.</p>
+          </article>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="year"></span> StarterSite. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="/script.js" defer></script>
+  </body>
+  </html>
+

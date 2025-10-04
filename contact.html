@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Contact us." />
+    <title>Contact • Starter Website</title>
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles.css" />
+    <style>
+      .form { max-width: 720px; margin: 0 auto; }
+      .row { display: grid; gap: 0.8rem; grid-template-columns: 1fr; }
+      @media (min-width: 720px) { .row.two { grid-template-columns: 1fr 1fr; } }
+      label { font-weight: 600; }
+      input, textarea { width: 100%; padding: 0.7rem 0.8rem; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-elev); color: var(--text); }
+      textarea { min-height: 160px; resize: vertical; }
+      .actions { display: flex; gap: 0.8rem; justify-content: flex-start; }
+      .note { color: var(--muted); font-size: 0.95rem; }
+    </style>
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('theme');
+          var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var theme = saved || (prefersDark ? 'dark' : 'light');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (_) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="/">Starter<span>Site</span></a>
+        <nav class="nav" id="site-nav" aria-label="Primary">
+          <a href="/">Home</a>
+          <a href="/blog/">Blog</a>
+          <a href="/about.html">About</a>
+          <a href="/contact.html" aria-current="page">Contact</a>
+        </nav>
+        <div class="header-actions">
+          <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme" title="Toggle theme"><span aria-hidden="true">🌓</span></button>
+          <button id="nav-toggle" class="icon-btn mobile-only" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav"><span aria-hidden="true">☰</span></button>
+        </div>
+      </div>
+    </header>
+
+    <main class="site-section">
+      <div class="container">
+        <h1>Contact</h1>
+        <p class="note">This form is client-side only. Hook it to your backend or a form service.</p>
+        <form class="form" method="post" action="#" onsubmit="event.preventDefault(); alert('Thanks! This is a demo form.');">
+          <div class="row two">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label for="subject">Subject</label>
+              <input id="subject" name="subject" type="text" />
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+          </div>
+          <div class="actions">
+            <button class="btn primary" type="submit">Send</button>
+            <button class="btn" type="reset">Reset</button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="year"></span> StarterSite. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="/script.js" defer></script>
+  </body>
+  </html>
+
